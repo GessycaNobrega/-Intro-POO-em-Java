@@ -1,0 +1,22 @@
+public class Endereco {
+    private String nome_rua;
+    private int numero;
+    public Endereço (String nome_rua, int numero){
+        this.setNomeRua (nome_rua);
+        this.numero=numero;
+    }
+    public String getNomeRua (){
+        return this.nome_rua;
+    }
+    private void setNumero(int numero){
+        this.numero = numero;
+    }
+    public int getNumero() {
+        return this.numero;
+    }
+
+    public static void main(String args[]){
+        Endereco ender = new Endereco ("rua X", 7);
+        System.out.println(ender.getNomeRua()+", "+ender.getNumero());
+    }
+}
