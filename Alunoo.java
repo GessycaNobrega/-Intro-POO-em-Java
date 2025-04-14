@@ -1,3 +1,5 @@
+//Classe base para usar mais adiante como referência 
+
 class Alunoo {
     private String nome;
     private int idade;
@@ -12,6 +14,6 @@ class Alunoo {
         this.idade = idade;
     }
     public String recuperarNome () {
-        retur this.nome;
+        return this.nome;
     }
 }
