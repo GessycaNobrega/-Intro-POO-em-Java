@@ -17,3 +17,10 @@ public abstract class GenericDAO<E,K> {
   public abstract E obter(K chave);
   public abstract List<E> obterTodos();
   } 
+
+  //Se você quiser utilizar um banco de dados Oracle, com acesso local e instância padrão XE, mantendo o usuário e a senha definidos, modifique o corpo do método getConnection, conforme sugerido no trecho de código seguinte:
+
+    Class.forName("oracle.jdbc.OracleDriver");
+  return DriverManager.getConnection(
+          jdbc:oracle:thin:@localhost:1521:XE",
+         "escola","escola"); 
