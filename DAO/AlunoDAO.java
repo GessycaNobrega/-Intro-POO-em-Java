@@ -36,5 +36,43 @@ public class AlunoDAO extends GenericDAO<Aluno, String>{
 		              }
 		              return aluno;
 	         }
-} 
+}
+
+@Override
+  public void incluir(Aluno entidade) {
+	         try {
+		                PreparedStatement ps = getConnection().prepareStatement(
+				                                     "INSERT INTO ALUNO VALUES (?, ?, ?)");
+		                ps.setString(1, entidade.matricula);
+		                ps.setString(2, entidade.nome);
+		                ps.setInt(3, entidade.ano);
+		                ps.executeUpdate();
+		               closeStatement(ps);
+	         } catch (Exception e) { }
+  }
+
+   @Override
+  public void excluir(String chave) {
+	         try {
+		               PreparedStatement ps = getConnection().prepareStatement(
+				                    "DELETE FROM ALUNO WHERE MATRICULA = ?");
+		               ps.setString(1, chave);
+		               ps.executeUpdate();
+		               closeStatement(ps);
+	         } catch (Exception e) { }
+  }
+
+    @Override
+  public void alterar(Aluno entidade) {
+	        try {
+		               PreparedStatement ps = getConnection().prepareStatement(
+				   "UPDATE ALUNO SET NOME = ?, ENTRADA = ? "+
+				                                  	" WHERE MATRICULA = ?");
+		               ps.setString(1, entidade.nome);
+		               ps.setInt(2, entidade.ano);
+		               ps.setString(3, entidade.matricula);
+		               ps.executeUpdate();
+		               closeStatement(ps);
+	        } catch (Exception e) { }
+  } 
 
